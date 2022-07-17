@@ -5,7 +5,7 @@ const server = express()
 
 //creates a cloud server wich goes offline after 15 minutes inactivity
 server.all("/", (req, res) => {
-    res.send(`Moin! Dieser Server ist exlusiv für den KochBot!`)
+    res.send(`Moin! Dieser Server ist exlusiv für den UwUBot!`)
 })
 
 //Opens a port at port 3000 and logs the text in the console

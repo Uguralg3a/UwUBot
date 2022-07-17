@@ -3,7 +3,7 @@ const keepAlive = require("./server")
 const fs = require("fs")
 const client = new Discord.Client({intents: [ ]});
 
-let prefix = 'uwu!';
+let prefix = '!';
 
 client.commands = new Discord.Collection();
 
@@ -14,7 +14,9 @@ for(const file of commandFiles){
     client.commands.set(command.name, command)
 }
 
-client.on('message', message =>{
+
+
+client.on('message', message => {
     if(!message.content.startsWith(prefix) || message.author.bot) return;
     
     const args = message.content.slice(prefix.length).split(/ +/);
@@ -22,12 +24,14 @@ client.on('message', message =>{
 
     if(command === 'test'){
         client.commands.get('test').execute(message, args, Discord)
-    } 
+    } else if(command === 'o'){
+      client.commands.get('o').execute(message, args, Discord)
+    }
 });
 
 client.once('ready', () => {
     console.log(`${client.user.username} ist jetzt online und bereit zum testen! Ich bin gerade auf ${client.guilds.cache.size} Servern! Um ${client.readyAt} wurden der Bot gestartet! Sollte mehr als 1 Monat vergangen sein, bitte neu starten!`);
-    client.user.setStatus('dnd');
+    client.user.setStatus('online');
     setInterval(() => {
         const statuses = [
             "Prefix: uwu!",
@@ -39,6 +43,6 @@ client.once('ready', () => {
 });
 
 
-const TOKENSECRET = 'OTk4MjM3Nzc1NzEzMjc2MDI0.GTK3X0.9fE0dL3ONvKXbtmLiGmji2POmdwSGcjsRVOZfo'
+const TOKENSECRET = process.env['token']
 keepAlive()
 client.login(TOKENSECRET)
