@@ -1,0 +1,23 @@
+{
+  "name": "uwubot",
+  "version": "1.0.0",
+  "description": "UwUBot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Uguralg3a/UwUBot.git"
+  },
+  "author": "Ugur, Jason",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Uguralg3a/UwUBot/issues"
+  },
+  "homepage": "https://github.com/Uguralg3a/UwUBot#readme",
+  "dependencies": {
+    "discord.js": "^13.8.1",
+    "express": "^4.18.1"
+  }
+}
